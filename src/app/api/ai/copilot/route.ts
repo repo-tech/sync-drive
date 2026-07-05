@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
       }
 
       try {
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
         const prompt = `You are an inline text completion assistant. Given the preceding text context of a document, write the next few words or short phrase that naturally completes the current sentence or thought.
 Return ONLY the completion text itself. Do NOT include markdown, quotes, backticks, or any conversational explanation. Keep it concise (1 to 10 words).
 Preceding context:
@@ -69,7 +69,7 @@ Preceding context:
       }
 
       try {
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
         const prompt = `Read the following document text and provide a concise, high-level summary using markdown bullet points. Underline key terms where appropriate.
 Document Text:
 "${text}"`;
@@ -102,7 +102,7 @@ Document Text:
       }
 
       try {
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
         const prompt = `Compare the older version of the document with the newer version. Explain the main changes, additions, deletions, and structural reorganizations in a friendly, conversational bullet-point summary.
 Old Version:
 "${oldText}"
