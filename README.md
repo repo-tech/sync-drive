@@ -1,36 +1,322 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Local-First Collaborative Document Editor
 
-## Getting Started
+A production-ready collaborative document editor built with **Next.js 16**, designed around a **Local-First Architecture** with offline synchronization, deterministic conflict resolution, granular version history, and real-time collaboration.
 
-First, run the development server:
+This project was developed as part of the **House of Edtech Fullstack Developer Assignment (v2.1 - April 2026)**.
+
+---
+
+## 🚀 Features
+
+### ✨ Core Features
+
+- Local-First Document Editing
+- Offline Support
+- Automatic Background Synchronization
+- Deterministic Conflict Resolution
+- Real-Time Collaboration
+- Granular Version History
+- Time Travel & Restore
+- Document Roles (Owner / Editor / Viewer)
+- Authentication & Authorization
+- Secure API Validation
+- Responsive UI
+- Accessibility Support
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Radix UI
+
+### Backend
+
+- Next.js API Routes
+- PostgreSQL
+- Prisma ORM
+
+### Authentication
+
+- Auth.js (NextAuth)
+
+### Storage
+
+- PostgreSQL
+- Browser Local Storage / IndexedDB (Offline Cache)
+
+### Realtime
+
+- WebSockets / Server Events
+
+### AI Features
+
+- OpenAI / Gemini Integration *(Optional Add-ons)*
+
+### Deployment
+
+- Vercel
+
+---
+
+# Project Structure
+
+```
+app/
+components/
+hooks/
+lib/
+prisma/
+public/
+services/
+store/
+types/
+utils/
+```
+
+---
+
+# Getting Started
+
+## Prerequisites
+
+- Node.js 22+
+- PostgreSQL
+- npm / pnpm / yarn
+
+---
+
+## Installation
+
+Clone the repository
+
+```bash
+git clone <repository-url>
+
+cd project-name
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Create environment variables
+
+```bash
+cp .env.example .env
+```
+
+Configure your environment variables.
+
+Example
+
+```env
+DATABASE_URL=
+
+AUTH_SECRET=
+
+AUTH_URL=
+
+OPENAI_API_KEY=
+
+NEXT_PUBLIC_APP_URL=
+```
+
+Run database migrations
+
+```bash
+npx prisma migrate dev
+```
+
+Generate Prisma Client
+
+```bash
+npx prisma generate
+```
+
+---
+
+# Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Starts the development server.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
+Creates a production build.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Starts the production server.
+
+```bash
+npm run lint
+```
+
+Runs ESLint.
+
+---
+
+# Architecture Highlights
+
+## Local-First Design
+
+- Client storage is the primary source of truth.
+- Users can create and edit documents completely offline.
+- No network request blocks the user interface.
+
+---
+
+## Background Sync Engine
+
+- Queues offline operations.
+- Automatically syncs when the connection is restored.
+- Prevents overwriting offline changes.
+
+---
+
+## Conflict Resolution
+
+- Deterministic merge strategy.
+- Prevents data loss during concurrent edits.
+- Ensures consistent document state across collaborators.
+
+---
+
+## Version History
+
+- Snapshot-based versioning.
+- Timeline navigation.
+- Safe restoration of previous document versions.
+
+---
+
+## Security
+
+- Authentication using Auth.js
+- Role-Based Access Control
+- Payload Validation
+- Protected API Routes
+- PostgreSQL Row-Level Security (RLS)
+- Tenant Isolation
+- Rate Limiting
+- Input Sanitization
+
+---
+
+# User Roles
+
+| Role | Permissions |
+|------|-------------|
+| Owner | Full Access |
+| Editor | Edit Documents |
+| Viewer | Read-Only Access |
+
+---
+
+# Performance Optimizations
+
+- Server Components
+- Route-based Code Splitting
+- Lazy Loading
+- Optimized Database Queries
+- Incremental Rendering
+- Client-side Caching
+- Background Synchronization Queue
+
+---
+
+# Testing
+
+The project supports
+
+- Unit Testing
+- Integration Testing
+- End-to-End Testing
+
+---
+
+# Deployment
+
+This application can be deployed on
+
+- Vercel
+- Netlify
+- Railway
+- Render
+
+---
+
+# Future Improvements
+
+- CRDT-based synchronization
+- AI-powered writing assistant
+- Rich text formatting
+- Comments & mentions
+- Document sharing
+- Presence indicators
+- Notifications
+- Mobile support
+
+---
+
+# Assignment Requirements Covered
+
+- ✅ Next.js 16
+- ✅ TypeScript
+- ✅ PostgreSQL
+- ✅ Local-First Architecture
+- ✅ Offline Editing
+- ✅ Background Sync
+- ✅ Conflict Resolution
+- ✅ Version History
+- ✅ Authentication
+- ✅ Authorization
+- ✅ Role-Based Access
+- ✅ Secure APIs
+- ✅ Responsive UI
+- ✅ Accessibility
+- ✅ Deployment Ready
+
+---
+
+# Author
+
+**Himanshu Gupta**
+
+- GitHub: https://github.com/repo-tech
+
+---
+
+# License
+
+This project was developed for the **House of Edtech Fullstack Developer Assignment** and is intended for evaluation purposes.
